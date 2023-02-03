@@ -18,7 +18,7 @@ func (s *Server) Start() error {
 	//--- загружаем роуты
 	s.LoadRoute()
 
-	return http.ListenAndServe(":4000", s.router)
+	return http.ListenAndServe(":4001", s.router)
 
 	//log.Fatal(err)
 

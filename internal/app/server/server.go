@@ -1,14 +1,17 @@
 package server
 
 import (
+	"fmt"
+	"github.com/aasidxxx/mules/storage"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 )
 
 type Server struct {
-	port   string
-	router *mux.Router
+	port    string
+	router  *mux.Router
+	Storage *storage.Storage
 }
 
 func (s *Server) Start() error {
@@ -25,8 +28,20 @@ func (s *Server) Start() error {
 }
 
 func NewServer() *Server {
+
+	//--- подтягиваем  storage
+	t := storage.New()
+	t.Open()
+	fmt.Println(t.UserRepository)
+
+	//--- подтягиваем объект юзеров
+	usr := storage.NewUserInit(t)
+
+	t.UserRepository = usr
+
 	return &Server{
-		port:   ":8080",
-		router: mux.NewRouter(),
+		port:    ":8080",
+		router:  mux.NewRouter(),
+		Storage: t,
 	}
 }

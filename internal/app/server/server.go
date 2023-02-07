@@ -13,7 +13,7 @@ type Server struct {
 
 func (s *Server) Start() error {
 
-	log.Println("Запуск веб-сервера на http://127.0.0.1:4000")
+	log.Println("Запуск веб-сервера на http://127.0.0.1:4001")
 
 	//--- загружаем роуты
 	s.LoadRoute()

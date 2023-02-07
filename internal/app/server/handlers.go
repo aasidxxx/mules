@@ -7,6 +7,10 @@ import (
 
 func (s *Server) GetHome(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("----home ")
-	w.Write([]byte("mu test 222"))
+	w.Write([]byte("корневой роут"))
+}
 
+func (s *Server) AllUser(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("----home ")
+	w.Write([]byte("корневой роут"))
 }

@@ -5,7 +5,7 @@ services:
     build: ./
    # command: ./wait-for-postgres.sh db ./gdocers
     ports:
-      - 4000:4001
+      - 4001:4001
     depends_on:
       - db
     environment:
@@ -21,3 +21,4 @@ services:
       - POSTGRES_PASSWORD=qwerty
     ports:
       - 5436:5432
+
